@@ -80,6 +80,7 @@ return (
 
 	<div className="marquee">
   	  <div className="marquee-content">
+	    <span>Hello from my CI/CD Pipeline</span>
     	    <span>PYTHON</span>
 	    <span>Linux</span>
 	    <span>C++</span>
