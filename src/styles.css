@@ -1,0 +1,465 @@
+/*
+  ============================================
+  -- OPERATOR MONO: A BOLD & BRUTALIST THEME --
+  -- Portfolio Homepage CSS                  --
+  -- Created: June 2025                      --
+  ============================================
+*/
+
+/* -------------------- */
+/* -- FONT IMPORTS   -- */
+/* -------------------- */
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Roboto+Mono:wght@400;700&display=swap');
+
+/* -------------------- */
+/* -- CSS VARIABLES  -- */
+/* -------------------- */
+:root {
+  /* Color Palette */
+  --color-background: #0a0a0a;
+  --color-text: #e5e5e5;
+  --color-accent: #0047ab; /* Cobalt Blue */
+  --color-secondary: #c0c0c0; /* Silver */
+  --color-border: #444;
+
+  /* Typography */
+  --font-heading: 'VT323', monospace;
+  --font-body: 'Roboto Mono', monospace;
+
+  /* Spacing */
+  --spacing-unit: 1rem;
+}
+
+/* -------------------- */
+/* -- GLOBAL RESETS  -- */
+/* -------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%; /* 16px */
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+/* -------------------- */
+/* -- TYPOGRAPHY     -- */
+/* -------------------- */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+  line-height: 1.2;
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(3rem, 10vw, 5rem); /* Responsive font size */
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  border-bottom: 2px solid var(--color-border);
+  display: inline-block;
+  padding-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  color: var(--color-secondary);
+}
+
+p {
+  margin-bottom: var(--spacing-unit);
+  max-width: 70ch; /* Limits line length for readability */
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: var(--color-secondary);
+  transition: left 0.4s ease-out;
+}
+
+a:hover::after {
+  left: 0;
+}
+
+
+/* ----------------------- */
+/* -- LAYOUT & SECTIONS -- */
+/* ----------------------- */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: calc(var(--spacing-unit) * 4) 0;
+}
+
+/* Header/Nav - Simple and direct */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-unit) 5%;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: calc(var(--spacing-unit) * 2);
+}
+
+.main-nav a {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+.main-nav a:hover {
+  color: var(--color-accent);
+}
+.main-nav a::after {
+  background: var(--color-accent); /* Blue underline for nav links */
+}
+
+
+/* Hero Section - Bold Intro */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  text-align:center; 
+  padding:0 var(--spacing-unit);
+  position: relative;
+  background-size: cover; 
+  
+  background-position: center center; 
+  background-repeat: no-repeat;
+
+  background-size: contain;
+
+  background-attachment: scroll;
+  
+}
+
+@media (min-width: 768px) {
+  .hero{
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
+
+.hero > div {
+    position: relative;
+    z-index: 2; /*ensures text stays above my image*/ 
+}
+
+.hero p {
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.hero .glitch-text {
+    font-size: clamp(2rem, 10vw, 5rem);
+    text-transform: uppercase;
+    color: var(--color-text);
+    position: relative;
+    animation: glitch 5s infinite steps(1);
+}
+
+/* Fun glitch effect for hero text */
+
+@keyframes simpleGlitchText {
+  0%, 100% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    transform: translate(0, 0);
+    clip-path: none;
+  }
+  25% {
+    text-shadow: -2px 2px 0 red, 2px -2px 0 blue;
+    transform: translate(2px, -1px);
+  }
+  50% {
+    /* The clip-path adds the "tearing" effect, but we only use it once */
+    clip-path: inset(20% 0 50% 0);
+    text-shadow: 2px -2px 0 red, -2px 2px 0 blue;
+  }
+  75% {
+    text-shadow: -2px 0 0 red, 1px 0 0 blue;
+    transform: translate(-2px, 1px);
+  }
+}
+
+
+@keyframes simpleImageGlitch {
+  0%, 100% {
+    transform: scale(1.0) skew(0);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.01) skew(-3deg, 1deg);
+    filter: brightness(1.5);
+  }
+}
+
+.hero.is-glitching {
+  animation: simpleImageGlitch 0.2s ease-in-out forwards;
+}
+
+.hero.is-glitching .glitch-text {
+  animation: simpleGlitchText 0.2s steps(4, end) forwards;
+}
+
+
+/* About Me Section - Special Ops Focus */
+#about {
+  background-color: #111;
+  padding: var(--spacing-unit) * 4;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Creates two equal columns */
+  gap: calc(var(--spacing-unit) * 3);
+  align-items: center;
+}
+
+.about-text p {
+  max-width: 60ch; /* Keeps text readable */
+}
+
+.about-image-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* A grid for the images themselves */
+  gap: calc(var(--spacing-unit) * 1.5);
+  align-items: center;
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  /* Hard, angular shape for the image */
+  clip-path: polygon(0 5%, 100% 0, 95% 100%, 0 95%);
+  filter: grayscale(80%) contrast(120%);
+  transition: all 0.3s ease-in-out;
+}
+
+.about-image:hover {
+  filter: grayscale(0%) contrast(100%);
+  transform: scale(1.05);
+  z-index: 10;
+  position: relative;
+}
+
+/* On smaller screens, stack everything in one column */
+@media (max-width: 900px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Skills Section */
+.marque {
+  width: 100%;
+  overflow: hidden;
+  padding: var(--spacing-unit) 0;
+  background-color: var(--color-accent); 
+  color: var(--color-text);
+  border-top: 2px solid var(--color-border); 
+  border-bottom: 2px solid var(--color-border); 
+}
+
+.marquee-content {
+  display: flex; 
+  white-space: nowrap;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-content span {
+  font-family: var(--font-heading); 
+  font-size: 1.5rem; 
+  padding: 0 2rem; 
+  text-transform: uppercase; 
+}
+
+@keyframes marquee-scroll {
+	from { transform: translateX(0); }
+	to { transform: translateX(-50%); } 
+}
+
+/* Projects Section - Brutalist Cards */
+.project-grid {
+  display: grid;
+  /* Creates columns that are at least 320px wide, but grow to fill space */
+  grid-template-columns: 1fr; 
+  gap: calc(var(--spacing-unit) * 2.5);
+}
+
+@media (min-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* This is a new class for the <a> tag wrapping the card */
+.project-card-link {
+  text-decoration: none; /* Removes the default blue underline from the link */
+  color: inherit; /* Makes the text inside inherit its color */
+  display: block; /* Ensures the link takes up the full grid space */
+}
+
+.project-card {
+  background-color: #1a1a1a; /* A slightly lighter black for contrast */
+  border: 2px solid var(--color-border);
+  padding: calc(var(--spacing-unit) * 1.5);
+  height: 100%; /* Makes all cards in a row the same height */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--color-accent); /* Blue border on hover */
+  /* This creates the solid, offset shadow that is key to the brutalist look */
+  box-shadow: 10px 10px 0 var(--color-accent); 
+}
+
+.project-card h3 {
+  color: var(--color-accent);
+}
+
+.project-card p {
+  flex-grow: 1; /* Pushes the footer down to the bottom */
+  margin-top: var(--spacing-unit);
+}
+
+.project-image {
+  width: 100%;
+  height: 400px;
+  object-fit: scale-down; 
+  border: 2px solid var(--color-border);
+  margin-bottom: var(--spacing-unit);
+}
+
+/* This is a new class for the footer of the card */
+.card-footer {
+  margin-top: var(--spacing-unit);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-secondary); /* Silver color */
+  text-align: right;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .card-footer {
+    color: var(--color-accent); /* Changes to blue on hover */
+}
+
+.resume-display {
+  background-color: #1a1a1a; /* Same dark background as project cards */
+  border: 2px solid var(--color-border);
+  padding: calc(var(--spacing-unit) * 2);
+  max-width: 850px; /* Constrain width for a good look on large screens */
+  margin: 2rem auto 0; /* Center the block and add space above */
+  text-align: center; /* Center the download button */
+}
+
+.resume-screenshot {
+  width: 100%; /* Make the image responsive */
+  height: auto;
+  border: 2px solid var(--color-border);
+  transition: opacity 0.3s ease;
+}
+
+.resume-screenshot:hover {
+  opacity: 0.8; /* Slight fade on hover to indicate it's clickable */
+}
+
+.resume-download-btn {
+  margin-top: calc(var(--spacing-unit) * 1.5); /* Add space between image and button */
+  display: inline-block; /* Ensure it's treated as a block for centering */
+}
+
+
+/* -------------------- */
+/* -- BUTTONS & FORMS -- */
+/* -------------------- */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+  background-color: var(--color-accent);
+  color: #fff;
+  border: 2px solid var(--color-accent);
+  text-transform: uppercase;
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: var(--color-accent);
+}
+
+.btn svg {
+  margin-right: 8px; 
+  vertical-align: middle;
+  position: relative; 
+  top: -1px; 
+}
+
+/* -------------------- */
+/* -- RESPONSIVENESS -- */
+/* -------------------- */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    gap: var(--spacing-unit);
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-image-container {
+      max-width: 80%;
+      margin: 0 auto;
+  }
+}
