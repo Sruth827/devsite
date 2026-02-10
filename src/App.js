@@ -7,6 +7,7 @@ import { SiRaylib } from "react-icons/si";
 import image1 from './assets/IMG_work.jpg';
 import image2 from './assets/IMG_2.JPEG';
 import image3 from './assets/DHTsensor.png';
+import imagePLR from './assets/imagePLR.jpg';
 import moonBackground from './assets/IMG_moon3.jpg';
 import moonBackground1 from './assets/IMG_moon.jpg';
 import moonBackground2 from './assets/IMG_moon2.jpg';
@@ -125,7 +126,20 @@ return (
 
 	<section id="projects" className="container">
 	  <h2>My Projects</h2>
-	  <div className="project-grid">
+
+          <div className="project-grid">
+
+	  <a href="https://plrfoundation.org" target="_blank" rel="noopener noreferrer" className="project-card-link">
+            <div className="project-card">    
+	      <img src={imagePLR} alt="PLR Foundation Project" className="project-image" />
+              <h3>Nonprofit Web Platform</h3>
+              <p> A decoupled web application built for the PLR Foundation using <strong>Sanity CMS</strong> and <strong>React</strong>.Features automated <strong>CI/CD workflows</strong> via GitHub Actions for seamless content updates and rapid deployment.</p>
+              <div className="card-footer">
+                <span className="project-url">plrfoundation.org</span>
+              </div>
+             </div>
+          </a>
+
 	  <a href="http://sensor.s-ruth.dev" target="_blank" rel="noopener noreferrer" className="project-card-link">
 	    <div className="project-card">
 	      <img src={image3} alt="Sensor Project" className="project-image" />
