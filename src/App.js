@@ -81,14 +81,16 @@ return (
 
 	<div className="marquee">
   	  <div className="marquee-content">
-	    <span>Hello from my CI/CD Pipeline</span>
     	    <span>PYTHON</span>
 	    <span>Linux</span>
 	    <span>C++</span>
+	    <span>CI/CD Pipeline</span>
 	    <span>Data Structures</span>
 	    <span>Algorithms</span>
 	    <span>Java</span>
 	    <span>REACT</span>
+	    <span>NodeJS</span>
+	    <span>NextJS</span>
 	    <span>JAVASCRIPT</span>
 	    <span>RAYLIB</span>
 	    <span>SQL</span>
@@ -97,9 +99,12 @@ return (
 	    <span>Linux</span>
 	    <span>C++</span>
 	    <span>Data Structures</span>
+	    <span>CI/CD Pipeline</span>
 	    <span>Algorithms</span>
 	    <span>Java</span>
 	    <span>REACT</span>
+	    <span>NodeJS</span>
+	    <span>NextJS</span>
 	    <span>JAVASCRIPT</span>
 	    <span>RAYLIB</span>
 	    <span>SQL</span>
